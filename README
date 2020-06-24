@@ -1,0 +1,25 @@
+Bedrock
+
+a lambda calculus interpreter
+
+One of the simplest programming languages is lambda calculus.  All components
+are atoms, lambdas or lists.  Lists can contain other lists, and, can only be
+definitions or invocations.  Definitions are lists that define one parameter
+functions.  They contain a lambda, an atom and another element.  Invocations are
+lists that invoke one parameter functions.  They contain two elements.  λ
+denotes the lambda operator.  Letters denote atoms.  Brackets and commas are
+used to denote lists.
+
+Evaluating atoms returns them.  Evaluating lists involves evaluating elements.
+Evaluating invocations may also involve various substitutions.  Here are the
+evaluation steps for [[λ, z, ζ], δ] where ζ and δ refer to any atom or list:
+
+   1. Replace ζ and δ with their respective evaluations.
+
+   2. Replace all the bound atoms in [λ, z, ζ], that are in δ, with new atoms.
+
+   3. Replace all the z's in ζ, that are not bound to new definitions, with δ.
+
+   4. Return the evaluation of ζ.
+
+See the source code and other lambda calculus resources for further details.
