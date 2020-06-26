@@ -16,8 +16,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import unittest
-import subprocess
 import warnings
+import subprocess
 
 SUM     = "[[PLUS, [[PLUS, [[PLUS, %d], %d]], %d]], %d]"
 DIFF    = "[[MINUS, [[MINUS, [[MINUS, %d], %d]], %d]], %d]"
