@@ -17,6 +17,7 @@
 
 import unittest
 import subprocess
+import warnings
 
 SUM     = "[[PLUS, [[PLUS, [[PLUS, %d], %d]], %d]], %d]"
 DIFF    = "[[MINUS, [[MINUS, [[MINUS, %d], %d]], %d]], %d]"
@@ -43,6 +44,9 @@ def num_func(n, x = "x", y = "y"):
                                                                ((n + 2) * "]")
 
 class Tester(unittest.TestCase):
+        def setUp(self):
+                warnings.simplefilter("ignore", ResourceWarning)
+
         def do_num_test(self, e, num):
                 for f in ABBREVS:
                         e = e.replace(f, ABBREVS[f])
@@ -152,5 +156,4 @@ class Tester(unittest.TestCase):
                 self.do_test("[IS_ZERO, 8]",          "[λ, d, [λ, c, c]]")
                 self.do_test("[IS_ZERO, 0]",          "[λ, b, [λ, a, b]]")
 
-test_suite = unittest.makeSuite(Tester)
-unittest.TextTestRunner(verbosity = 2).run(test_suite)
+unittest.main()
