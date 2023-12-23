@@ -16,7 +16,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import unittest
-import warnings
 import subprocess
 
 SUM     = "[[PLUS, [[PLUS, [[PLUS, %d], %d]], %d]], %d]"
@@ -44,9 +43,6 @@ def num_func(n, x = "x", y = "y"):
                                                                ((n + 2) * "]")
 
 class Tester(unittest.TestCase):
-        def setUp(self):
-                warnings.simplefilter("ignore", ResourceWarning)
-
         def do_num_test(self, e, num):
                 for f in ABBREVS:
                         e = e.replace(f, ABBREVS[f])
